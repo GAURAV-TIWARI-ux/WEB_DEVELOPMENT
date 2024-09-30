@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+</head>
+<body>
+    <form action="/submit-form">
+        <table>
+            <tr>
+                <td><label for="pname">Project Name</label></td>
+                <td><input type="text" id="pname" name="pname" placeholder="Project Name" required></td>
+            </tr>
+            <tr>
+                <td><label for="assign">Assigned To</label></td>
+                <td>
+                    <select name="assign" id="assign" required>
+                        <option value="">Select a person</option>
+                        <option value="Johnson Smith">Johnson Smith</option>
+                        <option value="Harry Potter">Harry Potter</option>
+                        <option value="Tony Stark">Tony Stark</option>
+                        <option value="Andrew Smith">Andrew Smith</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="sdate">Start Date</label></td>
+                <td><input type="date" id="sdate" name="sdate" required></td>
+            </tr>
+            <tr>
+                <td><label for="edate">End Date</label></td>
+                <td><input type="date" id="edate" name="edate" required></td>
+            </tr>
+            <tr>
+                <td><label>Priority</label></td>
+                <td>
+                    <input type="radio" id="high" name="priority" value="high" required>
+                    <label for="high">High</label>
+                    
+                    <input type="radio" id="average" name="priority" value="average">
+                    <label for="average">Average</label>
+                    
+                    <input type="radio" id="low" name="priority" value="low">
+                    <label for="low">Low</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="description">Description</label></td>
+                <td><textarea id="description" name="description" placeholder="Enter project description here..." required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    
+</body>
+</html>
