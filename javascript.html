@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Multiplication</title>
+    <style>
+        .matrix-input {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Matrix Multiplication</h2>
+    <div class="matrix-input">
+        <h3>Matrix 1</h3>
+        <input type="number" id="m1r1c1" placeholder="0">
+        <input type="number" id="m1r1c2" placeholder="0">
+        <input type="number" id="m1r1c3" placeholder="0"><br>
+        <input type="number" id="m1r2c1" placeholder="0">
+        <input type="number" id="m1r2c2" placeholder="0">
+        <input type="number" id="m1r2c3" placeholder="0"><br>
+        <input type="number" id="m1r3c1" placeholder="0">
+        <input type="number" id="m1r3c2" placeholder="0">
+        <input type="number" id="m1r3c3" placeholder="0">
+    </div>
+    <div class="matrix-input">
+        <h3>Matrix 2</h3>
+        <input type="number" id="m2r1c1" placeholder="0">
+        <input type="number" id="m2r1c2" placeholder="0">
+        <input type="number" id="m2r1c3" placeholder="0"><br>
+        <input type="number" id="m2r2c1" placeholder="0">
+        <input type="number" id="m2r2c2" placeholder="0">
+        <input type="number" id="m2r2c3" placeholder="0"><br>
+        <input type="number" id="m2r3c1" placeholder="0">
+        <input type="number" id="m2r3c2" placeholder="0">
+        <input type="number" id="m2r3c3" placeholder="0">
+    </div>
+    <button onclick="multiplyMatrices()">Multiply Matrices</button>
+    <h3>Resultant Matrix</h3>
+    <div id="result"></div>
+
+    <script>
+        function multiplyMatrices() {
+            // Get values from input fields
+            const matrix1 = [
+                [parseFloat(document.getElementById('m1r1c1').value), parseFloat(document.getElementById('m1r1c2').value), parseFloat(document.getElementById('m1r1c3').value)],
+                [parseFloat(document.getElementById('m1r2c1').value), parseFloat(document.getElementById('m1r2c2').value), parseFloat(document.getElementById('m1r2c3').value)],
+                [parseFloat(document.getElementById('m1r3c1').value), parseFloat(document.getElementById('m1r3c2').value), parseFloat(document.getElementById('m1r3c3').value)]
+            ];
+
+            const matrix2 = [
+                [parseFloat(document.getElementById('m2r1c1').value), parseFloat(document.getElementById('m2r1c2').value), parseFloat(document.getElementById('m2r1c3').value)],
+                [parseFloat(document.getElementById('m2r2c1').value), parseFloat(document.getElementById('m2r2c2').value), parseFloat(document.getElementById('m2r2c3').value)],
+                [parseFloat(document.getElementById('m2r3c1').value), parseFloat(document.getElementById('m2r3c2').value), parseFloat(document.getElementById('m2r3c3').value)]
+            ];
+
+            // Initialize result matrix
+            const resultMatrix = [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0]
+            ];
+
+            // Perform matrix multiplication
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    for (let k = 0; k < 3; k++) {
+                        resultMatrix[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+
+            // Display result
+            let resultHTML = '';
+            for (let i = 0; i < 3; i++) {
+                resultHTML += resultMatrix[i].join(' ') + '<br>';
+            }
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
